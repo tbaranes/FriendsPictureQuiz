@@ -1,0 +1,13 @@
+PODS:
+  - FSI (0.1.1)
+  - MBProgressHUD (0.8)
+
+DEPENDENCIES:
+  - FSI (~> 0.1.0)
+  - MBProgressHUD (~> 0.8)
+
+SPEC CHECKSUMS:
+  FSI: 6b6b5b184116ffc5c7669fad31f40358129dcbe0
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+
+COCOAPODS: 0.33.1

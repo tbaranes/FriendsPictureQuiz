@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E206CA4A19397FA70040FBC0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E206CA4919397FA70040FBC0 /* FacebookSDK.framework */; };
+		E206CA4C1939A38B0040FBC0 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E206CA4B1939A38B0040FBC0 /* Social.framework */; };
+		E227EA87193DB49E00965768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E227EA85193DB49E00965768 /* Main.storyboard */; };
+		E23FEEF5193892F3009ACB05 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23FEEF4193892F3009ACB05 /* Accelerate.framework */; };
+		E23FEEF719389318009ACB05 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23FEEF619389318009ACB05 /* QuartzCore.framework */; };
+		E2426DD819384C9E006ADDB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2426DD719384C9E006ADDB3 /* Foundation.framework */; };
+		E2426DDA19384C9E006ADDB3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2426DD919384C9E006ADDB3 /* CoreGraphics.framework */; };
+		E2426DDC19384C9E006ADDB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2426DDB19384C9E006ADDB3 /* UIKit.framework */; };
+		E25A30A1193DB88300D91F81 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E25A309F193DB88300D91F81 /* Localizable.strings */; };
+		E2A56A871939A6EF004F2470 /* UIImage+FQBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A861939A6EF004F2470 /* UIImage+FQBlur.m */; };
+		E2A56A8A1939A6FF004F2470 /* FQFriendProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A891939A6FF004F2470 /* FQFriendProfile.m */; };
+		E2A56A8D1939A70F004F2470 /* FQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A8C1939A70F004F2470 /* FQHomeViewController.m */; };
+		E2A56A941939A71C004F2470 /* FQHomeFooterReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A8F1939A71C004F2470 /* FQHomeFooterReusableView.m */; };
+		E2A56A951939A71C004F2470 /* FQHomeHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A911939A71C004F2470 /* FQHomeHeaderReusableView.m */; };
+		E2A56A961939A71C004F2470 /* FQProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A931939A71C004F2470 /* FQProfilePictureCell.m */; };
+		E2A56A991939A725004F2470 /* FQGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A981939A725004F2470 /* FQGameViewController.m */; };
+		E2A56A9C1939A72F004F2470 /* FQAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56A9B1939A72F004F2470 /* FQAppDelegate.m */; };
+		E2A56A9F1939A73B004F2470 /* picture_profile_test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A56A9D1939A73B004F2470 /* picture_profile_test@2x.png */; };
+		E2A56AA01939A73B004F2470 /* profile_found.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A56A9E1939A73B004F2470 /* profile_found.png */; };
+		E2A56AA31939A758004F2470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56AA21939A758004F2470 /* main.m */; };
+		E2A56AA71939A767004F2470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A56AA61939A767004F2470 /* Images.xcassets */; };
+		E2D6A8D61939B2E900F8BCC4 /* btn_twitter_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D6A8D51939B2E900F8BCC4 /* btn_twitter_login@2x.png */; };
+		E2D6A8D81939D01A00F8BCC4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */; };
+		E2D6A8DC1939F4C500F8BCC4 /* btn_reset.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D6A8DB1939F4C500F8BCC4 /* btn_reset.png */; };
+		E2D6A8DF1939FE7200F8BCC4 /* FQFacebookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D6A8DE1939FE7200F8BCC4 /* FQFacebookHelper.m */; };
+		E2DD52CA1939A9A600C08971 /* FQTwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DD52C91939A9A600C08971 /* FQTwitterHelper.m */; };
+		E8186F625DD44CE596B31088 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA238B1847A4E3B9138230B /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		50319D49811E4155B065287D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E206CA4919397FA70040FBC0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		E206CA4B1939A38B0040FBC0 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		E227EA86193DB49E00965768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E23FEEF4193892F3009ACB05 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		E23FEEF619389318009ACB05 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E2426DD419384C9E006ADDB3 /* FriendsPictureQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsPictureQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2426DD719384C9E006ADDB3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E2426DD919384C9E006ADDB3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E2426DDB19384C9E006ADDB3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E2426DF619384C9E006ADDB3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E25A3098193DB5CC00D91F81 /* FriendsPictureQuiz-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FriendsPictureQuiz-Prefix.pch"; path = "FriendsPictureQuiz/FriendsPictureQuiz-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		E25A309C193DB6AB00D91F81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		E25A309D193DB83F00D91F81 /* FriendsPictureQuiz-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FriendsPictureQuiz-Info.plist"; path = "FriendsPictureQuiz/FriendsPictureQuiz-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E25A30A0193DB88300D91F81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = FriendsPictureQuiz/en.lproj/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		E276F3FB193DF03900A98D6F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		E276F3FC193DF03A00A98D6F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E2A56A841939A6EF004F2470 /* FQCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQCategories.h; sourceTree = "<group>"; };
+		E2A56A851939A6EF004F2470 /* UIImage+FQBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FQBlur.h"; sourceTree = "<group>"; };
+		E2A56A861939A6EF004F2470 /* UIImage+FQBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FQBlur.m"; sourceTree = "<group>"; };
+		E2A56A881939A6FF004F2470 /* FQFriendProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQFriendProfile.h; sourceTree = "<group>"; };
+		E2A56A891939A6FF004F2470 /* FQFriendProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQFriendProfile.m; sourceTree = "<group>"; };
+		E2A56A8B1939A70F004F2470 /* FQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQHomeViewController.h; sourceTree = "<group>"; };
+		E2A56A8C1939A70F004F2470 /* FQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQHomeViewController.m; sourceTree = "<group>"; };
+		E2A56A8E1939A71C004F2470 /* FQHomeFooterReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQHomeFooterReusableView.h; sourceTree = "<group>"; };
+		E2A56A8F1939A71C004F2470 /* FQHomeFooterReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQHomeFooterReusableView.m; sourceTree = "<group>"; };
+		E2A56A901939A71C004F2470 /* FQHomeHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQHomeHeaderReusableView.h; sourceTree = "<group>"; };
+		E2A56A911939A71C004F2470 /* FQHomeHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQHomeHeaderReusableView.m; sourceTree = "<group>"; };
+		E2A56A921939A71C004F2470 /* FQProfilePictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQProfilePictureCell.h; sourceTree = "<group>"; };
+		E2A56A931939A71C004F2470 /* FQProfilePictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQProfilePictureCell.m; sourceTree = "<group>"; };
+		E2A56A971939A725004F2470 /* FQGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQGameViewController.h; sourceTree = "<group>"; };
+		E2A56A981939A725004F2470 /* FQGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQGameViewController.m; sourceTree = "<group>"; };
+		E2A56A9A1939A72F004F2470 /* FQAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQAppDelegate.h; sourceTree = "<group>"; };
+		E2A56A9B1939A72F004F2470 /* FQAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQAppDelegate.m; sourceTree = "<group>"; };
+		E2A56A9D1939A73B004F2470 /* picture_profile_test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "picture_profile_test@2x.png"; sourceTree = "<group>"; };
+		E2A56A9E1939A73B004F2470 /* profile_found.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_found.png; sourceTree = "<group>"; };
+		E2A56AA21939A758004F2470 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2A56AA61939A767004F2470 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E2D6A8D51939B2E900F8BCC4 /* btn_twitter_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_twitter_login@2x.png"; sourceTree = "<group>"; };
+		E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		E2D6A8DB1939F4C500F8BCC4 /* btn_reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_reset.png; sourceTree = "<group>"; };
+		E2D6A8DD1939FE7200F8BCC4 /* FQFacebookHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQFacebookHelper.h; sourceTree = "<group>"; };
+		E2D6A8DE1939FE7200F8BCC4 /* FQFacebookHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQFacebookHelper.m; sourceTree = "<group>"; };
+		E2DD52C81939A9A600C08971 /* FQTwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQTwitterHelper.h; sourceTree = "<group>"; };
+		E2DD52C91939A9A600C08971 /* FQTwitterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQTwitterHelper.m; sourceTree = "<group>"; };
+		FEA238B1847A4E3B9138230B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2426DD119384C9E006ADDB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2D6A8D81939D01A00F8BCC4 /* Accounts.framework in Frameworks */,
+				E206CA4C1939A38B0040FBC0 /* Social.framework in Frameworks */,
+				E23FEEF719389318009ACB05 /* QuartzCore.framework in Frameworks */,
+				E23FEEF5193892F3009ACB05 /* Accelerate.framework in Frameworks */,
+				E2426DDA19384C9E006ADDB3 /* CoreGraphics.framework in Frameworks */,
+				E2426DDC19384C9E006ADDB3 /* UIKit.framework in Frameworks */,
+				E2426DD819384C9E006ADDB3 /* Foundation.framework in Frameworks */,
+				E8186F625DD44CE596B31088 /* libPods.a in Frameworks */,
+				E206CA4A19397FA70040FBC0 /* FacebookSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E23FEED2193863F9009ACB05 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				E276F3FD193DF48600A98D6F /* Cell */,
+				E2A56A971939A725004F2470 /* FQGameViewController.h */,
+				E2A56A981939A725004F2470 /* FQGameViewController.m */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		E23FEED9193866EB009ACB05 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E2A56A901939A71C004F2470 /* FQHomeHeaderReusableView.h */,
+				E2A56A911939A71C004F2470 /* FQHomeHeaderReusableView.m */,
+				E2A56A8E1939A71C004F2470 /* FQHomeFooterReusableView.h */,
+				E2A56A8F1939A71C004F2470 /* FQHomeFooterReusableView.m */,
+				E2A56A921939A71C004F2470 /* FQProfilePictureCell.h */,
+				E2A56A931939A71C004F2470 /* FQProfilePictureCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E23FEEDF193875C6009ACB05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2A56A881939A6FF004F2470 /* FQFriendProfile.h */,
+				E2A56A891939A6FF004F2470 /* FQFriendProfile.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2426DCB19384C9E006ADDB3 = {
+			isa = PBXGroup;
+			children = (
+				E2426DDD19384C9E006ADDB3 /* FriendsPictureQuiz */,
+				E2426DD619384C9E006ADDB3 /* Frameworks */,
+				E2426DD519384C9E006ADDB3 /* Products */,
+				50319D49811E4155B065287D /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		E2426DD519384C9E006ADDB3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2426DD419384C9E006ADDB3 /* FriendsPictureQuiz.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2426DD619384C9E006ADDB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */,
+				E206CA4B1939A38B0040FBC0 /* Social.framework */,
+				E206CA4919397FA70040FBC0 /* FacebookSDK.framework */,
+				E23FEEF619389318009ACB05 /* QuartzCore.framework */,
+				E23FEEF4193892F3009ACB05 /* Accelerate.framework */,
+				E2426DD719384C9E006ADDB3 /* Foundation.framework */,
+				E2426DD919384C9E006ADDB3 /* CoreGraphics.framework */,
+				E2426DDB19384C9E006ADDB3 /* UIKit.framework */,
+				E2426DF619384C9E006ADDB3 /* XCTest.framework */,
+				FEA238B1847A4E3B9138230B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2426DDD19384C9E006ADDB3 /* FriendsPictureQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				E2426E0C19384E3C006ADDB3 /* Classes */,
+				E2426E1319384E45006ADDB3 /* Ressources */,
+				E2426DDE19384C9E006ADDB3 /* Supporting Files */,
+			);
+			path = FriendsPictureQuiz;
+			sourceTree = "<group>";
+		};
+		E2426DDE19384C9E006ADDB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E25A309F193DB88300D91F81 /* Localizable.strings */,
+				E2A56AA61939A767004F2470 /* Images.xcassets */,
+				E25A309D193DB83F00D91F81 /* FriendsPictureQuiz-Info.plist */,
+				E2A56AA21939A758004F2470 /* main.m */,
+				E25A3098193DB5CC00D91F81 /* FriendsPictureQuiz-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2426E0C19384E3C006ADDB3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E227EA85193DB49E00965768 /* Main.storyboard */,
+				E2426E1419384E51006ADDB3 /* Generic */,
+				E23FEEDF193875C6009ACB05 /* Model */,
+				E2426E1519384E5F006ADDB3 /* UI */,
+				E2426E1819384E7F006ADDB3 /* Application Delegate */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E2426E1319384E45006ADDB3 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				E2D6A8DB1939F4C500F8BCC4 /* btn_reset.png */,
+				E2A56A9D1939A73B004F2470 /* picture_profile_test@2x.png */,
+				E2A56A9E1939A73B004F2470 /* profile_found.png */,
+				E2D6A8D51939B2E900F8BCC4 /* btn_twitter_login@2x.png */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		E2426E1419384E51006ADDB3 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				E2DD52C41939A98700C08971 /* Helper */,
+				E2426E1619384E68006ADDB3 /* Categories */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		E2426E1519384E5F006ADDB3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E2426E1919384E93006ADDB3 /* Home */,
+				E23FEED2193863F9009ACB05 /* Game */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E2426E1619384E68006ADDB3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E2A56A841939A6EF004F2470 /* FQCategories.h */,
+				E2A56A851939A6EF004F2470 /* UIImage+FQBlur.h */,
+				E2A56A861939A6EF004F2470 /* UIImage+FQBlur.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E2426E1819384E7F006ADDB3 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E2A56A9A1939A72F004F2470 /* FQAppDelegate.h */,
+				E2A56A9B1939A72F004F2470 /* FQAppDelegate.m */,
+			);
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		E2426E1919384E93006ADDB3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E23FEED9193866EB009ACB05 /* Cell */,
+				E2A56A8B1939A70F004F2470 /* FQHomeViewController.h */,
+				E2A56A8C1939A70F004F2470 /* FQHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E276F3FD193DF48600A98D6F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		E2DD52C41939A98700C08971 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E2D6A8DD1939FE7200F8BCC4 /* FQFacebookHelper.h */,
+				E2D6A8DE1939FE7200F8BCC4 /* FQFacebookHelper.m */,
+				E2DD52C81939A9A600C08971 /* FQTwitterHelper.h */,
+				E2DD52C91939A9A600C08971 /* FQTwitterHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2426DD319384C9E006ADDB3 /* FriendsPictureQuiz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2426E0619384C9E006ADDB3 /* Build configuration list for PBXNativeTarget "FriendsPictureQuiz" */;
+			buildPhases = (
+				B8FF12A0DFEB428D9DDBE524 /* Check Pods Manifest.lock */,
+				E2426DD019384C9E006ADDB3 /* Sources */,
+				E2426DD119384C9E006ADDB3 /* Frameworks */,
+				E2426DD219384C9E006ADDB3 /* Resources */,
+				ABA0F949EDDA41A9BE170026 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FriendsPictureQuiz;
+			productName = FacebookQuiz;
+			productReference = E2426DD419384C9E006ADDB3 /* FriendsPictureQuiz.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2426DCC19384C9E006ADDB3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FQ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Tom Baranes";
+			};
+			buildConfigurationList = E2426DCF19384C9E006ADDB3 /* Build configuration list for PBXProject "FriendsPictureQuiz" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				fr,
+			);
+			mainGroup = E2426DCB19384C9E006ADDB3;
+			productRefGroup = E2426DD519384C9E006ADDB3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2426DD319384C9E006ADDB3 /* FriendsPictureQuiz */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2426DD219384C9E006ADDB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2A56AA01939A73B004F2470 /* profile_found.png in Resources */,
+				E2A56AA71939A767004F2470 /* Images.xcassets in Resources */,
+				E2D6A8D61939B2E900F8BCC4 /* btn_twitter_login@2x.png in Resources */,
+				E227EA87193DB49E00965768 /* Main.storyboard in Resources */,
+				E25A30A1193DB88300D91F81 /* Localizable.strings in Resources */,
+				E2D6A8DC1939F4C500F8BCC4 /* btn_reset.png in Resources */,
+				E2A56A9F1939A73B004F2470 /* picture_profile_test@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ABA0F949EDDA41A9BE170026 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8FF12A0DFEB428D9DDBE524 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2426DD019384C9E006ADDB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2A56AA31939A758004F2470 /* main.m in Sources */,
+				E2A56A961939A71C004F2470 /* FQProfilePictureCell.m in Sources */,
+				E2A56A8A1939A6FF004F2470 /* FQFriendProfile.m in Sources */,
+				E2A56A991939A725004F2470 /* FQGameViewController.m in Sources */,
+				E2A56A871939A6EF004F2470 /* UIImage+FQBlur.m in Sources */,
+				E2D6A8DF1939FE7200F8BCC4 /* FQFacebookHelper.m in Sources */,
+				E2A56A941939A71C004F2470 /* FQHomeFooterReusableView.m in Sources */,
+				E2DD52CA1939A9A600C08971 /* FQTwitterHelper.m in Sources */,
+				E2A56A9C1939A72F004F2470 /* FQAppDelegate.m in Sources */,
+				E2A56A951939A71C004F2470 /* FQHomeHeaderReusableView.m in Sources */,
+				E2A56A8D1939A70F004F2470 /* FQHomeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E227EA85193DB49E00965768 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E227EA86193DB49E00965768 /* Base */,
+				E25A309C193DB6AB00D91F81 /* en */,
+				E276F3FB193DF03900A98D6F /* fr */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E25A309F193DB88300D91F81 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E25A30A0193DB88300D91F81 /* en */,
+				E276F3FC193DF03A00A98D6F /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E2426E0419384C9E006ADDB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E2426E0519384C9E006ADDB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2426E0719384C9E006ADDB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50319D49811E4155B065287D /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FriendsPictureQuiz/FriendsPictureQuiz-Prefix.pch";
+				INFOPLIST_FILE = "FriendsPictureQuiz/FriendsPictureQuiz-Info.plist";
+				PRODUCT_NAME = FriendsPictureQuiz;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E2426E0819384C9E006ADDB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50319D49811E4155B065287D /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FriendsPictureQuiz/FriendsPictureQuiz-Prefix.pch";
+				INFOPLIST_FILE = "FriendsPictureQuiz/FriendsPictureQuiz-Info.plist";
+				PRODUCT_NAME = FriendsPictureQuiz;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2426DCF19384C9E006ADDB3 /* Build configuration list for PBXProject "FriendsPictureQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2426E0419384C9E006ADDB3 /* Debug */,
+				E2426E0519384C9E006ADDB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2426E0619384C9E006ADDB3 /* Build configuration list for PBXNativeTarget "FriendsPictureQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2426E0719384C9E006ADDB3 /* Debug */,
+				E2426E0819384C9E006ADDB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2426DCC19384C9E006ADDB3 /* Project object */;
+}

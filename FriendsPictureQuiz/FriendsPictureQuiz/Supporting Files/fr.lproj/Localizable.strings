@@ -1,0 +1,29 @@
+/* Localized versions of Info.plist keys */
+
+//Generic
+"generic.title_app" = "FriendsPictureQuiz";
+"generic.word.friends" = "amis";
+"generic.word.confirm" = "Confirmer";
+"generic.word.cancel" = "Annuler";
+
+"generic.error.title" = "Une erreur s'est produite";
+"generic.error.msg" = "Réessayez plus tard";
+
+// Home
+"home.friends_found.message" = "Vous avez trouvé";
+"home.facebook.login" = "Devinez vos amis utilisant cette application!";
+"home.facebook.logout" = "Attention: vous déconnectez ne supprimera pas vos données";
+"home.twitter.title" = "Plus d'amis";
+"home.twitter.msg" = "Trop facile ? Essayez de trouver vos amis Twitter !";
+
+"home.reset.title" = "Remise à zéro";
+"home.reset.msg" = "Attention: vous perdrez toutes les données acquises jusqu'à aujourd'hui";
+
+// Twitter
+"twitter.error.title" = "Twitter erreur";
+"twitter.error.no_account" = "Aucun compte Twitter trouvé sur votre appareil.";
+
+// Facebook
+"facebook.error.title" = "Facebook erreur";
+"facebook.session_error.title" = "Session Erreur";
+"facebook.error_session_expired" = "Votre session n'est plus valide, veuillez vous reconnectez.";
