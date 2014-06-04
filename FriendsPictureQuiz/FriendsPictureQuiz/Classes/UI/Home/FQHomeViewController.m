@@ -34,17 +34,23 @@ static NSString *keyFriendsUserDefaults = @"keyFriendsUserDefaults";
 
 #pragma mark - Life cycle
 
+- (void)setupUI {
+	[self setTitle:NSLocalizedString(@"generic.title_app", nil)];
+	self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor redColorFQ]};
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self setTitle:NSLocalizedString(@"generic.title_app", nil)];
-		
+	[self setupUI];
+	
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn_reset"]];
 	UIButton *btnReset = [UIButton buttonWithImageView:imageView target:self selector:@selector(resetPressed:)];
 	[self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:btnReset]];
 
-	[self loadDataFriends];
+	[self setupFacebookStateChanged];
 	[self fetchFacebookResult];
+	[self loadDataFriends];
 }
 
 #pragma mark - IBAction
@@ -56,10 +62,15 @@ static NSString *keyFriendsUserDefaults = @"keyFriendsUserDefaults";
 #pragma mark - Facebook
 
 - (void)fetchFacebookResult {
-	[[FQFacebookHelper sharedAPI] setupHelperWithFriendsFetchedBlock:^(NSArray *friends) {
-		if ([friends count]) {
-			[self filtreAndAddNewFriends:friends];
-		}
+	[[FQFacebookHelper sharedAPI] setFriendsFetchedBlock:^(NSArray *friends) {
+		[self filtreAndAddNewFriends:friends];
+		[[self.collectionView collectionViewLayout] invalidateLayout];
+	}];
+}
+
+- (void)setupFacebookStateChanged {
+	[[FQFacebookHelper sharedAPI] setFacebookStateChangedBlock:^{
+		[self.collectionView reloadData];
 	}];
 }
 
@@ -72,24 +83,50 @@ static NSString *keyFriendsUserDefaults = @"keyFriendsUserDefaults";
 		[twitter loginWithCompletion:^{
 			if ([twitter isLogged]) {
 				[twitter fetchTwitterFollowingWithCompletion:^(NSArray *friends) {
-					[self filtreAndAddNewFriends:friends];
+					if (friends) {
+						[self updateUIWithNewFriends:friends];
+					}
 				}];
 			} else {
-				[UIAlertView showTitle:NSLocalizedString(@"twitter.error.title", nil) message:NSLocalizedString(@"twitter.error.no_account", nil)];				
+				[MBProgressHUD hideHUDForView:self.view animated:YES];
+				[UIAlertView showTitle:NSLocalizedString(@"twitter.error.title", nil) message:NSLocalizedString(@"twitter.error.no_acccess_or_account", nil)];
 			}
-			
-			[self.collectionView reloadData];
-			[MBProgressHUD hideHUDForView:self.view animated:YES];
 		}];
+	});
+}
+
+- (void)updateUIWithNewFriends:(NSArray *)friends {
+	NSInteger oldFriends = [self.items count];	
+	[self filtreAndAddNewFriends:friends];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self.collectionView reloadData];
+		[MBProgressHUD hideHUDForView:self.view animated:YES];
+		NSIndexPath *indexPath = [[self.collectionView indexPathsForVisibleItems] firstObject];
+		[self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:NO];
+		
+		NSInteger newFriend = [self.items count] - oldFriends;
+		if (newFriend) {
+			[UIAlertView showTitle:NSLocalizedString(@"home.new_friends_loaded.title", nil) message:[NSString stringWithFormat:@"%u %@", newFriend, NSLocalizedString(@"home.new_friends_loaded.msg", nil)]];
+		} else {
+			[UIAlertView showTitle:NSLocalizedString(@"home.new_friends_loaded.title", nil) message:NSLocalizedString(@"home.no_friends_loaded.msg", nil)];
+		}
 	});
 }
 
 #pragma mark - Data
 
-- (void)filtreAndAddNewFriends:(NSArray *)newFriends {
+- (NSInteger)filtreAndAddNewFriends:(NSArray *)newFriends {
+	NSInteger oldItems = [self.items count];
 	NSMutableSet *set = [NSMutableSet setWithArray:newFriends];
 	[set addObjectsFromArray:self.items];
 	self.items = [set allObjects];
+	[self saveFriendsData];
+	return [self.items count] - oldItems;
+}
+
+- (void)friendWasFound:(FQFriendProfile *)friendFound {
+	[friendFound setIsFound:YES];
+	[self.collectionView reloadData];
 	[self saveFriendsData];
 }
 
@@ -155,6 +192,9 @@ static NSString *keyFriendsUserDefaults = @"keyFriendsUserDefaults";
 	if ([[segue identifier] isEqualToString:@"ProfilePictureToGameSegueIdentifier"]) {
         FQGameViewController *vc = [segue destinationViewController];
         [vc setItemSelected:sender.item];
+		[vc setFriendIsFoundBlock:^{
+			[self friendWasFound:sender.item];
+		}];
 	}
 }
 
@@ -162,10 +202,10 @@ static NSString *keyFriendsUserDefaults = @"keyFriendsUserDefaults";
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
+		[[FQTwitterHelper sharedAPI] resetCursor];		
 		NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 		[userDefaults setObject:nil forKey:keyFriendsUserDefaults];
 		[userDefaults synchronize];
-		
 		self.items = nil;
 		[self.collectionView reloadData];
 

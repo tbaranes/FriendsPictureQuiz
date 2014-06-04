@@ -12,6 +12,7 @@
 
 + (id)sharedAPI;
 - (BOOL)isLogged;
+- (void)resetCursor;
 - (void)loginWithCompletion:(void (^)())completion;
 
 - (void)fetchTwitterFollowingWithCompletion:(void (^)(NSArray *friends))completion;

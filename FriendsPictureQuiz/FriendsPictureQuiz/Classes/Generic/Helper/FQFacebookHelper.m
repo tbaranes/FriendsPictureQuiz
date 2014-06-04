@@ -9,12 +9,6 @@
 #import "FQFacebookHelper.h"
 #import "FQFriendProfile.h"
 
-@interface FQFacebookHelper ()
-
-@property (strong, nonatomic) FBFriendsFetchedBlock friendsFetchedBlock;
-
-@end
-
 @implementation FQFacebookHelper
 
 #pragma mark - Singleton
@@ -27,17 +21,18 @@
     return instance;
 }
 
-#pragma mark - Setup
-
-- (void)setupHelperWithFriendsFetchedBlock:(FBFriendsFetchedBlock)friendsFetchedBlock {
-	self.friendsFetchedBlock = friendsFetchedBlock;
-}
-
 #pragma mark - Facebook delegate
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-	if ([FBSession activeSession].isOpen) {
+	if (self.facebookStateChangedBlock) {
+		self.facebookStateChangedBlock();
 		[self fetchUserData];
+	}
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+	if (self.facebookStateChangedBlock) {
+		self.facebookStateChangedBlock();
 	}
 }
 

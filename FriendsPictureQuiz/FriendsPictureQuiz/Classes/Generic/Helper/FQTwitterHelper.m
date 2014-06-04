@@ -22,8 +22,17 @@
 @implementation FQTwitterHelper
 
 static NSString *twitterURLFollowing = @"https://api.twitter.com/1.1/friends/list.json";
+static NSString *keyCursorUserDefaults = @"keyCursorUserDefaults";
 
 #pragma mark - Singleton
+
+- (id)init {
+	self = [super init];
+	if (self) {
+		[self loadNextCursor];
+	}
+	return self;
+}
 
 + (id)sharedAPI {
     static dispatch_once_t onceQueue;
@@ -33,17 +42,40 @@ static NSString *twitterURLFollowing = @"https://api.twitter.com/1.1/friends/lis
     return instance;
 }
 
+#pragma mark - Twitter cursor
+
+- (void)saveNextCursor:(NSString *)cursor {
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	[userDefaults setValue:cursor forKeyPath:keyCursorUserDefaults];
+	[userDefaults synchronize];
+	self.nextCursor = cursor;
+}
+
+- (void)loadNextCursor {
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	self.nextCursor = [userDefaults valueForKeyPath:keyCursorUserDefaults];
+}
+
 #pragma mark - Helper
 
 - (BOOL)isLogged {
 	return self.account != nil;
 }
 
+- (void)resetCursor {
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	[userDefaults setValue:nil forKeyPath:keyCursorUserDefaults];
+	[userDefaults synchronize];
+	self.nextCursor = nil;
+}
+
 #pragma marl - Login
 
 - (void)loginWithCompletion:(void (^)())completion {
 	[self getTwitterAccountsWithCompletion:^(ACAccount *account) {
-		[self setAccount:account];
+		if (account) {
+			[self setAccount:account];
+		}
 		completion();
 	}];
 }
@@ -64,7 +96,7 @@ static NSString *twitterURLFollowing = @"https://api.twitter.com/1.1/friends/lis
 				completion([accountsArray firstObject]);
 			}
 		} else {
-			[UIAlertView showTitle:NSLocalizedString(@"twitter.error.title", nil) message:NSLocalizedString(@"twitter.error.no_account", nil)];
+			completion(nil);
 		}
 	}];
 }
@@ -94,7 +126,7 @@ static NSString *twitterURLFollowing = @"https://api.twitter.com/1.1/friends/lis
 			FSILogD(@"%@", [error localizedDescription]);
 		}
 		NSDictionary *twitterFriends = [NSJSONSerialization JSONObjectWithData:responseData options:(NSJSONReadingOptions)NSJSONWritingPrettyPrinted error:nil];
-		self.nextCursor = [twitterFriends objectForKey:@"next_cursor_str"];
+		[self saveNextCursor:[twitterFriends objectForKey:@"next_cursor_str"]];
 		
 		NSArray *following = [self parseDataReceived:[twitterFriends objectForKey:@"users"]];
 		completion(following);

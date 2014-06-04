@@ -16,8 +16,9 @@
 	self = [super init];
 	if (self) {
 		self.itemID = [[dic objectForKey:@"id"] intValue];
-		self.name = [dic objectForKey:@"name"];
+		self.name = [[dic objectForKey:@"name"] lowercaseString];
 		self.pictureURL = [dic objectForKey:@"profile_image_url"];
+		self.profilePicture = [self fetchProfilePicture];
 		self.isFound = NO;
 	}
 	return self;
@@ -38,6 +39,7 @@
 {
     [encoder encodeInteger:self.itemID forKey:@"customitemID"];
     [encoder encodeObject:self.pictureURL forKey:@"customPictureURL"];
+    [encoder encodeObject:self.profilePicture forKey:@"customProfilePicture"];
     [encoder encodeObject:self.name forKey:@"customName"];
     [encoder encodeBool:self.isFound forKey:@"customFound"];
 }
@@ -48,6 +50,7 @@
     if (self) {
         self.itemID = [decoder decodeIntegerForKey:@"customitemID"];
         self.pictureURL = [decoder decodeObjectForKey:@"customPictureURL"];
+        self.profilePicture = [decoder decodeObjectForKey:@"customProfilePicture"];
         self.name = [decoder decodeObjectForKey:@"customName"];
         self.isFound = [decoder decodeBoolForKey:@"customFound"];
     }

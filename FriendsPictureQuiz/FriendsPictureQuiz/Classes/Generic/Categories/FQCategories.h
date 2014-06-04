@@ -11,5 +11,6 @@
 #define FQ_CATEGORIES_H
 
 #import "UIImage+FQBlur.h"
+#import "UIColor+FQExtensions.h"
 
 #endif

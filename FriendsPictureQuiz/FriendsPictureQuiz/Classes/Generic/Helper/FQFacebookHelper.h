@@ -12,8 +12,12 @@
 @interface FQFacebookHelper : NSObject <FBLoginViewDelegate>
 
 typedef void (^FBFriendsFetchedBlock)(NSArray *);
+typedef void (^FBFacebookStateChangedBlock)();
+
+@property (strong, nonatomic) FBFriendsFetchedBlock friendsFetchedBlock;
+@property (strong, nonatomic) FBFacebookStateChangedBlock facebookStateChangedBlock;
 
 + (id)sharedAPI;
-- (void)setupHelperWithFriendsFetchedBlock:(FBFriendsFetchedBlock)friendsFetchedBlock;
+
 
 @end
