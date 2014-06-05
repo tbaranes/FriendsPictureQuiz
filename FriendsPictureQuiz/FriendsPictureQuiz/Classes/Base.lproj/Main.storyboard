@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nn5-k8-DSC" userLabel="Button - Reset">
-                                <rect key="frame" x="0.0" y="250" width="321" height="30"/>
+                                <rect key="frame" x="0.0" y="250" width="320" height="30"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.3803921569" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="game.btn.reset">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,6 +160,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PFg-WG-HBO">
                                 <rect key="frame" x="0.0" y="280" width="320" height="288"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PFg-WG-HBO" secondAttribute="height" multiplier="10:9" id="cRg-Na-D76"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="fTT-Hb-O1A">
                                     <size key="itemSize" width="63" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -174,7 +177,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="63" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="btn_letter.png" translatesAutoresizingMaskIntoConstraints="NO" id="gvU-EG-Wa2">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bg_cell_letter_fixed.png" translatesAutoresizingMaskIntoConstraints="NO" id="gvU-EG-Wa2">
                                                     <rect key="frame" x="0.0" y="0.0" width="63" height="60"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bum-dg-97c">
@@ -189,6 +192,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="Bum-dg-97c" secondAttribute="centerX" id="DLS-70-Hbb"/>
                                             <constraint firstItem="gvU-EG-Wa2" firstAttribute="top" secondItem="Pdv-Nv-N6t" secondAttribute="top" id="Oje-Wg-28q"/>
@@ -211,25 +215,28 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxL-mR-ziG">
                                 <rect key="frame" x="85" y="82" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="0Wd-WU-hgF"/>
-                                    <constraint firstAttribute="height" constant="150" id="Nwg-ch-GX3"/>
+                                    <constraint firstAttribute="width" secondItem="rxL-mR-ziG" secondAttribute="height" multiplier="1:1" id="TGQ-2T-AXj"/>
                                 </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="profile_found.png" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-Xj-EUy" userLabel="Image View - Valid">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="profile_found.png" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-Xj-EUy" userLabel="Image View - Valid">
                                 <rect key="frame" x="200" y="210" width="35" height="22"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rxL-mR-ziG" firstAttribute="centerX" secondItem="PFg-WG-HBO" secondAttribute="centerX" id="1tl-h9-ZaU"/>
-                            <constraint firstItem="PFg-WG-HBO" firstAttribute="top" secondItem="nn5-k8-DSC" secondAttribute="bottom" id="BU1-wu-hiV"/>
-                            <constraint firstItem="nn5-k8-DSC" firstAttribute="top" secondItem="rxL-mR-ziG" secondAttribute="bottom" constant="18" id="Qwe-to-XVG"/>
-                            <constraint firstItem="rxL-mR-ziG" firstAttribute="centerX" secondItem="nn5-k8-DSC" secondAttribute="centerX" id="Wsm-i0-oah"/>
-                            <constraint firstItem="rxL-mR-ziG" firstAttribute="top" secondItem="g4I-OT-tkS" secondAttribute="bottom" constant="18" id="aLR-3E-eK2"/>
-                            <constraint firstAttribute="centerX" secondItem="rxL-mR-ziG" secondAttribute="centerX" id="acf-hQ-fcx"/>
-                            <constraint firstItem="PFg-WG-HBO" firstAttribute="leading" secondItem="kGD-6x-Asi" secondAttribute="leading" id="cmS-9y-SCT"/>
-                            <constraint firstAttribute="bottom" secondItem="PFg-WG-HBO" secondAttribute="bottom" id="m83-1K-R9e"/>
-                            <constraint firstItem="PFg-WG-HBO" firstAttribute="leading" secondItem="nn5-k8-DSC" secondAttribute="leading" id="meX-O2-nMS"/>
+                            <constraint firstItem="rxL-mR-ziG" firstAttribute="trailing" secondItem="8cP-Xj-EUy" secondAttribute="trailing" id="1jv-TG-sae"/>
+                            <constraint firstAttribute="bottom" secondItem="PFg-WG-HBO" secondAttribute="bottom" id="6pA-Wf-QjU"/>
+                            <constraint firstItem="nn5-k8-DSC" firstAttribute="leading" secondItem="kGD-6x-Asi" secondAttribute="leading" id="9b6-3H-K2R"/>
+                            <constraint firstItem="nn5-k8-DSC" firstAttribute="leading" secondItem="PFg-WG-HBO" secondAttribute="leading" id="CqU-Zh-yCK"/>
+                            <constraint firstItem="8cP-Xj-EUy" firstAttribute="top" secondItem="g4I-OT-tkS" secondAttribute="bottom" constant="146" id="CwG-OK-f2d"/>
+                            <constraint firstItem="PFg-WG-HBO" firstAttribute="top" secondItem="nn5-k8-DSC" secondAttribute="bottom" id="Hv8-Zt-QL9"/>
+                            <constraint firstAttribute="trailing" secondItem="nn5-k8-DSC" secondAttribute="trailing" id="KLJ-V5-ZPu"/>
+                            <constraint firstItem="PFg-WG-HBO" firstAttribute="trailing" secondItem="nn5-k8-DSC" secondAttribute="trailing" id="OAg-ta-8cP"/>
+                            <constraint firstItem="rxL-mR-ziG" firstAttribute="top" secondItem="g4I-OT-tkS" secondAttribute="bottom" constant="18" id="bVR-jm-DTa"/>
+                            <constraint firstItem="nn5-k8-DSC" firstAttribute="centerX" secondItem="rxL-mR-ziG" secondAttribute="centerX" id="c4w-w7-fgU"/>
+                            <constraint firstItem="8cP-Xj-EUy" firstAttribute="bottom" secondItem="rxL-mR-ziG" secondAttribute="bottom" id="lVn-Zb-Qfy"/>
+                            <constraint firstItem="rxL-mR-ziG" firstAttribute="leading" secondItem="kGD-6x-Asi" secondAttribute="leading" constant="85" id="q2T-Rb-L7l"/>
+                            <constraint firstItem="nn5-k8-DSC" firstAttribute="top" secondItem="rxL-mR-ziG" secondAttribute="bottom" constant="18" id="tyf-wx-yTO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="joy-6x-lYk"/>
@@ -264,7 +271,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_letter.png" width="16" height="15"/>
+        <image name="bg_cell_letter_fixed.png" width="16" height="15"/>
         <image name="btn_twitter_login.png" width="140" height="30"/>
         <image name="profile_found.png" width="35" height="22"/>
     </resources>

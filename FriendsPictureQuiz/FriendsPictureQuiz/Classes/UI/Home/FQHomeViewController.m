@@ -106,7 +106,7 @@ static NSString *keyFriendsUserDefaults = @"keyFriendsUserDefaults";
 		
 		NSInteger newFriend = [self.items count] - oldFriends;
 		if (newFriend) {
-			[UIAlertView showTitle:NSLocalizedString(@"home.new_friends_loaded.title", nil) message:[NSString stringWithFormat:@"%u %@", newFriend, NSLocalizedString(@"home.new_friends_loaded.msg", nil)]];
+			[UIAlertView showTitle:NSLocalizedString(@"home.new_friends_loaded.title", nil) message:[NSString stringWithFormat:@"%ld %@", (long)newFriend, NSLocalizedString(@"home.new_friends_loaded.msg", nil)]];
 		} else {
 			[UIAlertView showTitle:NSLocalizedString(@"home.new_friends_loaded.title", nil) message:NSLocalizedString(@"home.no_friends_loaded.msg", nil)];
 		}

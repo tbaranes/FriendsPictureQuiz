@@ -19,9 +19,11 @@
 
 #define SIZE_CELL_KEYBOARD CGSizeMake(39.f, 39.f)
 #define NUMBER_CHARACTER_MAX_TO_HIDE 16
-#define NB_MAX_LETTER_PER_LINE 7
-#define INSET_SECTION 5.f
 
+#define NB_MIN_LETTER_PER_LINE 1
+#define NB_MAX_LETTER_PER_LINE 12
+
+#define INSET_SECTION 5.f
 #define SECTION_TO_FILL 0
 #define SECTION_KEYBOARD 1
 
@@ -40,25 +42,26 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 {
     [super viewDidLoad];
 	[self.view convertLocalizebleStrings];
+	
 	self.gameManager = [[FQGameManager alloc] initWithName:[self.itemSelected name]];
 	[self.gameManager setupManager];
 	[self setupImageToFind];
-
-	[self calcCharacterSizeWithNbMaxElementPerLine:NB_MAX_LETTER_PER_LINE];
+	[self calcCharacterSizeWithNbMaxElementPerLine:NB_MIN_LETTER_PER_LINE];
 }
 
 - (void)calcCharacterSizeWithNbMaxElementPerLine:(NSInteger)nbMaxElementPerLine {
 	NSInteger nbMaxPerLine = [self getNbCharactersFilled] > nbMaxElementPerLine ? nbMaxElementPerLine : [self getNbCharactersFilled];
 	NSInteger width = floor(CGRectGetWidth([self.collectionView bounds]));
-	NSInteger sizeElement = (width / nbMaxPerLine - 1);
-
+	NSInteger sizeElement = width / nbMaxPerLine - 1;
+	
 	self.sizeCharacter = CGSizeMake(sizeElement, sizeElement);
-	NSInteger heightKeyboard = (SIZE_CELL_KEYBOARD.height + 1) * 2 + INSET_SECTION;
+	NSInteger heightKeyboard = [self heightKeyboard];
 	NSInteger freeBottomPlace = [self calcFreeBottomPlace];
-	if (freeBottomPlace < heightKeyboard && [self getNbCharactersFilled] > nbMaxElementPerLine) {
+	if (heightKeyboard >= freeBottomPlace && [self getNbCharactersFilled] >= nbMaxElementPerLine && nbMaxElementPerLine <= NB_MAX_LETTER_PER_LINE) {
 		[self calcCharacterSizeWithNbMaxElementPerLine:nbMaxPerLine + 1];
 	}
 }
+
 
 #pragma mark - Setup UI
 
@@ -107,14 +110,22 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 	return [self.gameManager letterAtIndexPath:indexPath];
 }
 
-- (NSInteger)calcFreeBottomPlace {
-	NSInteger nbCharacterPerLine = floorf(CGRectGetWidth([self.collectionView bounds])) / self.sizeCharacter.width;
+- (NSInteger)heightKeyboardTofill {
+	NSInteger nbCharacterPerLine = floorf(CGRectGetWidth([self.collectionView bounds])) / (self.sizeCharacter.width + 1);
 	NSInteger nbLines = ([self getNbCharactersFilled] / nbCharacterPerLine) + 1;
 	NSInteger heightKeyboardToFill = ((self.sizeCharacter.height + 1) * nbLines) + (INSET_SECTION * 2);
-	NSInteger heightKeyboard = (SIZE_CELL_KEYBOARD.height + 1) * 2 + INSET_SECTION;
-	NSInteger bottomMarginFree = floorf(CGRectGetHeight([self.collectionView bounds])) - heightKeyboardToFill;
-	NSInteger freeBottomPlace = bottomMarginFree - heightKeyboard - INSET_SECTION;
-	return freeBottomPlace;
+	return heightKeyboardToFill;
+}
+
+- (NSInteger)heightKeyboard {
+	return (SIZE_CELL_KEYBOARD.height + 1 + INSET_SECTION) * 2;
+}
+
+- (NSInteger)calcFreeBottomPlace {
+	NSInteger heightKeyboardToFill = [self heightKeyboardTofill];
+	NSInteger height = floorf(CGRectGetHeight([self.collectionView bounds]));
+	NSInteger bottomMarginFree =  height - heightKeyboardToFill;
+	return bottomMarginFree;
 }
 
 #pragma mark - UICollectionView datasource & delegate
@@ -143,7 +154,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	FQLetter *letterSelected = [self letterAtIndexPath:indexPath];
-	if (![letterSelected isFix]) {
+	if (letterSelected && ![letterSelected isFix]) {
 		if (indexPath.section == SECTION_KEYBOARD) {
 			[self moveLecterSelectedFromKeyboard:letterSelected atIndexPath:indexPath];
 		} else {
@@ -156,7 +167,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
 	if (section == SECTION_TO_FILL) {
-		NSInteger bottomInset = [self calcFreeBottomPlace];
+		NSInteger bottomInset = [self calcFreeBottomPlace] - [self heightKeyboard];
 		return UIEdgeInsetsMake(INSET_SECTION, 0, bottomInset > 0 ? bottomInset : INSET_SECTION, 0);
 	}
 	return UIEdgeInsetsMake(INSET_SECTION, 0, INSET_SECTION, 0);

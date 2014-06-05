@@ -45,6 +45,8 @@
 	for (int i = 0; i < [name length]; i++) {
 		NSString *ichar  = [NSString stringWithFormat:@"%c", [name characterAtIndex:i]];
 		FQLetter *letter = [FQLetter new];
+		[letter setAlpha:1];
+		[letter setOnKeyboard:NO];
 		[letter setCharacter:ichar];
 		if (i % 3 && ![self.charactersToFill containsObject:ichar]) {
 			[letter setIsFix:YES];
@@ -53,11 +55,14 @@
 		} else {
 			characterHidden++;
 			[letter setIsFix:NO];
+			[letter setOnKeyboard:YES];
 			[letter setPositionOnKeyboard:[self.charactersKeyboard count]];
 			[self.charactersKeyboard addObject:letter];
 			
 			letter = [FQLetter new];
 			[letter setCharacter:@""];
+			[letter setAlpha:0];
+			[letter setShouldDidAnAnimation:YES];
 			[self.charactersToFill addObject:letter];
 		}
 	}
@@ -69,6 +74,7 @@
 		char c = (char)('a' + arc4random_uniform(25));
 		FQLetter *letter = [FQLetter new];
 		[letter setCharacter:[NSString stringWithFormat:@"%c", c]];
+		[letter setOnKeyboard:YES];
 		[letter setIsFix:NO];
 		[self.charactersKeyboard addObject:letter];
 	}
@@ -147,7 +153,9 @@
 	[newLetter setPositionOnKeyboard:[letterSelected positionOnKeyboard]];
 	[newLetter setCharacter:[letterSelected character]];
 	[newLetter setShouldDidAnAnimation:YES];
+	[newLetter setAlpha:1];
 	[letterSelected setCharacter:@""];
+	[letterSelected setAlpha:0];
 	[letterSelected setShouldDidAnAnimation:YES];
 	
 	NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.charactersToFill indexOfObject:newLetter] inSection:SECTION_TO_FILL];
@@ -165,7 +173,9 @@
 	FQLetter *newLetter = [self.charactersKeyboard objectAtIndex:[letterSelected positionOnKeyboard]];
 	[newLetter setCharacter:[letterSelected character]];
 	[newLetter setShouldDidAnAnimation:YES];
+	[newLetter setAlpha:1];
 	[letterSelected setCharacter:@""];
+	[letterSelected setAlpha:0];
 	[letterSelected setShouldDidAnAnimation:YES];
 	
 	NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[letterSelected positionOnKeyboard] inSection:SECTION_KEYBOARD];

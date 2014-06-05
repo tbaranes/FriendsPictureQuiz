@@ -12,7 +12,10 @@
 
 @property (nonatomic, strong) NSString *character;
 @property (nonatomic) NSInteger positionOnKeyboard;
+@property (nonatomic) NSInteger alpha;
+
 @property (nonatomic) BOOL isFix;
+@property (nonatomic) BOOL onKeyboard;
 @property (nonatomic) BOOL shouldDidAnAnimation;
 
 @end

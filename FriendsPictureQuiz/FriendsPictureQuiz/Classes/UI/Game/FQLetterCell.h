@@ -15,6 +15,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelLetter;
 
 - (void)configureCellWithModel:(FQLetter *)letter;
-- (void)animateLetterToSize:(CGSize)toSize;
 
 @end
