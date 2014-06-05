@@ -20,11 +20,18 @@
 #pragma mark - Data
 
 - (void)configureCellWithModel:(FQLetter *)letter {
-	[self setHidden:[[letter character] isEqualToString:@""]];
-	[self.labelLetter setText:[letter character]];
-	if ([letter shouldDidAnAnimation]) {
-		[self animateLetterToSize:CGSizeZero];
-		[letter setShouldDidAnAnimation:NO];
+	[self.imageBackground setHidden:!letter];
+	[self.labelLetter setHidden:!letter];
+	if (!letter) {
+		[self setBackgroundColor:[UIColor redColorFQ]];
+	} else {
+		[self setBackgroundColor:[UIColor clearColor]];
+		[self setHidden:[[letter character] isEqualToString:@""]];
+		[self.labelLetter setText:[letter character]];
+		if ([letter shouldDidAnAnimation]) {
+			[self animateLetterToSize:CGSizeZero];
+			[letter setShouldDidAnAnimation:NO];
+		}
 	}
 }
 
@@ -34,8 +41,7 @@
 	CGRect frame = CGRectZero;
 	frame.size = toSize;
 	[UIView animateWithDuration:1.f  animations:^{
-        [self.embedView setTransform:CGAffineTransformRotate(self.transform, M_PI_2 * 2)];
-		[self.embedView setFrame:frame];
+		[self setAlpha:0];
 	}];
 }
 

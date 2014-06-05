@@ -11,7 +11,6 @@
 @class FQLetter;
 @interface FQLetterCell : UICollectionViewCell
 
-@property (strong, nonatomic) IBOutlet UIView *embedView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageBackground;
 @property (strong, nonatomic) IBOutlet UILabel *labelLetter;
 

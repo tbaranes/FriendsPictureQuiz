@@ -550,6 +550,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FriendsPictureQuiz/FriendsPictureQuiz-Prefix.pch";
 				INFOPLIST_FILE = "FriendsPictureQuiz/FriendsPictureQuiz-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = FriendsPictureQuiz;
 				WRAPPER_EXTENSION = app;
 			};
@@ -568,6 +569,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FriendsPictureQuiz/FriendsPictureQuiz-Prefix.pch";
 				INFOPLIST_FILE = "FriendsPictureQuiz/FriendsPictureQuiz-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = FriendsPictureQuiz;
 				WRAPPER_EXTENSION = app;
 			};

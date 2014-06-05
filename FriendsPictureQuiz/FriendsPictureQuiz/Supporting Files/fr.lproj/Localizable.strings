@@ -6,24 +6,34 @@
 "generic.word.confirm" = "Confirmer";
 "generic.word.cancel" = "Annuler";
 
-"generic.error.title" = "Une erreur s'est produite";
-"generic.error.msg" = "Réessayez plus tard";
+"generic.error.title" = "Quelque chose ne va pas";
+"generic.error.msg" = "Veuillez réessayer plus tard.";
 
 // Home
 "home.friends_found.message" = "Vous avez trouvé";
-"home.facebook.login" = "Devinez vos amis utilisant cette application!";
-"home.facebook.logout" = "Attention: vous déconnectez ne supprimera pas vos données";
+"home.facebook.login" = "Trouver vos amis jouant à cette application !";
+"home.facebook.logout" = "Vos amis FB seront mis à jour automatiquement";
 "home.twitter.title" = "Plus d'amis";
-"home.twitter.msg" = "Trop facile ? Essayez de trouver vos amis Twitter !";
+"home.twitter.msg" = "Trop facile ? Confrontez-vous à vos amis Twitter";
 
-"home.reset.title" = "Remise à zéro";
-"home.reset.msg" = "Attention: vous perdrez toutes les données acquises jusqu'à aujourd'hui";
+"home.reset.title" = "Reset les données";
+"home.reset.msg" = "Si vous confirmez, toutes votre avancé sera perdu.";
+
+"home.new_friends_loaded.title" = "Nouveaux amis";
+"home.new_friends_loaded.msg" = "nouveaux amis vient juste d'être ajouté!";
+"home.no_friends_loaded.msg" = "Aucun nouvel amis";
+
+// Game
+"game.btn.reset" = "Reset";
+"game.end_game.title" = "Nom complet";
+"game.end_game.win" = "Félicitation, vous avez devinez qui était cette personne !";
+"game.end_game.lose" = "Mauvaise réponse. Continuez vos recherches...";
 
 // Twitter
 "twitter.error.title" = "Twitter erreur";
-"twitter.error.no_account" = "Aucun compte Twitter trouvé sur votre appareil.";
+"twitter.error.no_acccess_or_account" = "L'application doit accéder au compte Twitter de votre iPhone";
 
 // Facebook
 "facebook.error.title" = "Facebook erreur";
-"facebook.session_error.title" = "Session Erreur";
-"facebook.error_session_expired" = "Votre session n'est plus valide, veuillez vous reconnectez.";
+"facebook.session_error.title" = "Erreur de session";
+"facebook.error_session_expired" = "Votre session n'est plus valide. Veuillez vous connectez à nouveau";

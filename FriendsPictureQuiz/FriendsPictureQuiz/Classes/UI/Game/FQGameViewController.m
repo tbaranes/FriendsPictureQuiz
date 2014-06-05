@@ -15,9 +15,13 @@
 
 @interface FQGameViewController ()
 
-#define NUMBER_CHARACTER_MAX_TO_HIDE 15
 #define SIZE_CELL_KEYBOARD CGSizeMake(39.f, 39.f)
-#define TAG_INC 100
+#define NUMBER_CHARACTER_MAX_TO_HIDE 16
+#define NB_MAX_LETTER_PER_LINE 7
+#define INSET_SECTION 5.f
+
+#define SECTION_TO_FILL 0
+#define SECTION_KEYBOARD 1
 
 @property (strong, nonatomic) NSMutableArray *charactersToFill;
 @property (strong, nonatomic) NSMutableArray *charactersKeyboard;
@@ -36,11 +40,12 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 {
     [super viewDidLoad];
 	[self.view convertLocalizebleStrings];
+//	[self.itemSelected setName:@"Test"];
 	
 	[self initializeCharactersToFill];
 	[self initializeKeyboard];
 	[self setupImageToFind];
-	[self calcCharacterSize];
+	[self calcCharacterSizeWithNbMaxElementPerLine:NB_MAX_LETTER_PER_LINE];
 }
 
 #pragma mark - Initialize virtual keyboard
@@ -94,13 +99,17 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 	}
 }
 
-- (void)calcCharacterSize {
-	NSInteger nbMaxPerLine = 20;
-	NSInteger height = floor(CGRectGetHeight([self.collectionView bounds])) - SIZE_CELL_KEYBOARD.width * 2;
+- (void)calcCharacterSizeWithNbMaxElementPerLine:(NSInteger)nbMaxElementPerLine {
+	NSInteger nbMaxPerLine = [self getNbCharactersFilled] > nbMaxElementPerLine ? nbMaxElementPerLine : [self getNbCharactersFilled];
 	NSInteger width = floor(CGRectGetWidth([self.collectionView bounds]));
-	NSInteger nbElements = [self.charactersToFill count];
-	
-	self.sizeCharacter = CGSizeMake(52.f, 52.f);
+	NSInteger sizeElement = (width / nbMaxPerLine - 1);
+
+	self.sizeCharacter = CGSizeMake(sizeElement, sizeElement);
+	NSInteger heightKeyboard = (SIZE_CELL_KEYBOARD.height + 1) * 2 + INSET_SECTION;
+	NSInteger freeBottomPlace = [self calcFreeBottomPlace];
+	if (freeBottomPlace < heightKeyboard && [self getNbCharactersFilled] > nbMaxElementPerLine) {
+		[self calcCharacterSizeWithNbMaxElementPerLine:nbMaxPerLine + 1];
+	}
 }
 
 #pragma mark - Setup UI
@@ -120,7 +129,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 - (IBAction)resetPressed:(id)sender {
 	for (FQLetter *letter in self.charactersToFill) {
 		if (![letter isFix] && ![[letter character] isEqualToString:@""]) {
-			NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[self.charactersToFill indexOfObject:letter] inSection:0];
+			NSIndexPath *indexPath = [NSIndexPath indexPathForItem:[self.charactersToFill indexOfObject:letter] inSection:SECTION_TO_FILL];
 			[self moveLetterSelectedOnKeyboard:letter atIndexPath:indexPath];
 		}
 	}
@@ -145,7 +154,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 	if (self.nbCharactersFound == [[self.itemSelected name] length]) {
 		[UIAlertView showTitle:NSLocalizedString(@"game.end_game.title", nil) message:NSLocalizedString(@"game.end_game.win", nil)];
 		self.friendIsFoundBlock();
-		[self.imageIsFound setAlpha:NO];
+		[self.imageIsFound setHidden:NO];
 		[self.imagePictureProfile setImage:[self.itemSelected fetchProfilePicture]];
 	} else {
 		[UIAlertView showTitle:NSLocalizedString(@"game.end_game.title", nil) message:NSLocalizedString(@"game.end_game.lose", nil)];
@@ -154,8 +163,14 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 
 #pragma mark - Helper
 
+- (NSInteger)getNbCharactersFilled {
+	return [self.charactersToFill count] + 1;
+}
+
 - (FQLetter *)letterAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 0) {
+	if (indexPath.section == SECTION_TO_FILL && indexPath.row >= [self.charactersToFill count]) {
+		return nil;
+	} else if (indexPath.section == SECTION_TO_FILL) {
 		return [self.charactersToFill objectAtIndex:indexPath.row];
 	}
 	return [self.charactersKeyboard objectAtIndex:indexPath.row];
@@ -176,6 +191,16 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 	return nil;
 }
 
+- (NSInteger)calcFreeBottomPlace {
+	NSInteger nbCharacterPerLine = floorf(CGRectGetWidth([self.collectionView bounds])) / self.sizeCharacter.width;
+	NSInteger nbLines = ([self getNbCharactersFilled] / nbCharacterPerLine) + 1;
+	NSInteger heightKeyboardToFill = ((self.sizeCharacter.height + 1) * nbLines) + (INSET_SECTION * 2);
+	NSInteger heightKeyboard = (SIZE_CELL_KEYBOARD.height + 1) * 2 + INSET_SECTION;
+	NSInteger bottomMarginFree = floorf(CGRectGetHeight([self.collectionView bounds])) - heightKeyboardToFill;
+	NSInteger freeBottomPlace = bottomMarginFree - heightKeyboard - INSET_SECTION;
+	return freeBottomPlace;
+}
+
 #pragma mark - UICollectionView datasource & delegate
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -183,7 +208,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return section == 0 ? [self.charactersToFill count] : [self.charactersKeyboard count];
+	return section == SECTION_TO_FILL ? [self getNbCharactersFilled] : [self.charactersKeyboard count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -194,7 +219,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-	if (indexPath.section == 0) {
+	if (indexPath.section == SECTION_TO_FILL) {
 		return self.sizeCharacter;
 	}
 	return SIZE_CELL_KEYBOARD;
@@ -203,7 +228,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 	FQLetter *letterSelected = [self letterAtIndexPath:indexPath];
 	if (![letterSelected isFix]) {
-		if (indexPath.section == 1) {
+		if (indexPath.section == SECTION_KEYBOARD) {
 			[self moveLecterSelectedFromKeyboard:letterSelected atIndexPath:indexPath];
 		} else {
 			[self moveLetterSelectedOnKeyboard:letterSelected atIndexPath:indexPath];
@@ -214,9 +239,11 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-//	if (section == 1) {
-		return UIEdgeInsetsZero;
-//	}
+	if (section == SECTION_TO_FILL) {
+		NSInteger bottomInset = [self calcFreeBottomPlace];
+		return UIEdgeInsetsMake(INSET_SECTION, 0, bottomInset > 0 ? bottomInset : INSET_SECTION, 0);
+	}
+	return UIEdgeInsetsMake(INSET_SECTION, 0, INSET_SECTION, 0);
 }
 
 #pragma mark - Letters movement
@@ -232,7 +259,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 	[letterSelected setCharacter:@""];
 	[letterSelected setShouldDidAnAnimation:YES];
 	
-	NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.charactersToFill indexOfObject:newLetter] inSection:0];
+	NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[self.charactersToFill indexOfObject:newLetter] inSection:SECTION_TO_FILL];
 	[self.collectionView reloadItemsAtIndexPaths:@[indexPath, newIndexPath]];
 	
 	if ([self isCharacterPositionRight:newLetter]) {
@@ -251,7 +278,7 @@ static NSString *cellIdentifier = @"FQLetterdentifier";
 	[letterSelected setCharacter:@""];
 	[letterSelected setShouldDidAnAnimation:YES];
 	
-	NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[letterSelected positionOnKeyboard] inSection:1];
+	NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[letterSelected positionOnKeyboard] inSection:SECTION_KEYBOARD];
 	[self.collectionView reloadItemsAtIndexPaths:@[indexPath, newIndexPath]];
 }
 

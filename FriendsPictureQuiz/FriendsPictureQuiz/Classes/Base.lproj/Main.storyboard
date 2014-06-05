@@ -164,7 +164,7 @@
                                     <size key="itemSize" width="63" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FQLetterdentifier" id="Pdv-Nv-N6t" customClass="FQLetterCell">
@@ -198,6 +198,7 @@
                                             <constraint firstItem="gvU-EG-Wa2" firstAttribute="leading" secondItem="Pdv-Nv-N6t" secondAttribute="leading" id="fVr-A0-7UA"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="imageBackground" destination="gvU-EG-Wa2" id="nrZ-lu-Fh1"/>
                                             <outlet property="labelLetter" destination="Bum-dg-97c" id="0Ld-Ed-jbf"/>
                                         </connections>
                                     </collectionViewCell>

@@ -92,6 +92,8 @@ static NSString *keyCursorUserDefaults = @"keyCursorUserDefaults";
 			if ([accountsArray count] > 1) {
 				// a user may have one or more accounts added to their device
 				// you need to either show a prompt or a separate view to have a user select the account(s) you need to get the followers and friends for
+#warning Several twitter account: how to
+				completion([accountsArray firstObject]);
 			} else {
 				completion([accountsArray firstObject]);
 			}
