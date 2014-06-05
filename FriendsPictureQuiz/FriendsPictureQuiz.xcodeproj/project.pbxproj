@@ -39,6 +39,7 @@
 		E2A56AA71939A767004F2470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A56AA61939A767004F2470 /* Images.xcassets */; };
 		E2C0C81A19402FF0002C186D /* FQGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C0C81919402FF0002C186D /* FQGameManager.m */; };
 		E2C0C81C194052C7002C186D /* bg_cell_letter_unfixed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C0C81B194052C7002C186D /* bg_cell_letter_unfixed@2x.png */; };
+		E2C0C81E194080BD002C186D /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C0C81D194080BD002C186D /* iAd.framework */; };
 		E2D6A8D61939B2E900F8BCC4 /* btn_twitter_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D6A8D51939B2E900F8BCC4 /* btn_twitter_login@2x.png */; };
 		E2D6A8D81939D01A00F8BCC4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */; };
 		E2D6A8DF1939FE7200F8BCC4 /* FQFacebookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D6A8DE1939FE7200F8BCC4 /* FQFacebookHelper.m */; };
@@ -100,6 +101,7 @@
 		E2C0C81819402FF0002C186D /* FQGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQGameManager.h; sourceTree = "<group>"; };
 		E2C0C81919402FF0002C186D /* FQGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQGameManager.m; sourceTree = "<group>"; };
 		E2C0C81B194052C7002C186D /* bg_cell_letter_unfixed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_cell_letter_unfixed@2x.png"; sourceTree = "<group>"; };
+		E2C0C81D194080BD002C186D /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		E2D6A8D51939B2E900F8BCC4 /* btn_twitter_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_twitter_login@2x.png"; sourceTree = "<group>"; };
 		E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E2D6A8DD1939FE7200F8BCC4 /* FQFacebookHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQFacebookHelper.h; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C0C81E194080BD002C186D /* iAd.framework in Frameworks */,
 				E2D6A8D81939D01A00F8BCC4 /* Accounts.framework in Frameworks */,
 				E206CA4C1939A38B0040FBC0 /* Social.framework in Frameworks */,
 				E23FEEF719389318009ACB05 /* QuartzCore.framework in Frameworks */,
@@ -186,6 +189,7 @@
 		E2426DD619384C9E006ADDB3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0C81D194080BD002C186D /* iAd.framework */,
 				E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */,
 				E206CA4B1939A38B0040FBC0 /* Social.framework */,
 				E206CA4919397FA70040FBC0 /* FacebookSDK.framework */,
@@ -559,6 +563,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -568,6 +573,7 @@
 				INFOPLIST_FILE = "FriendsPictureQuiz/FriendsPictureQuiz-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = FriendsPictureQuiz;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -578,7 +584,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tom Baranes (6GS59T2X57)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -588,6 +595,7 @@
 				INFOPLIST_FILE = "FriendsPictureQuiz/FriendsPictureQuiz-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = FriendsPictureQuiz;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

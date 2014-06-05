@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Tom Baranes. All rights reserved.
 //
 
+#import <iAd/iAd.h>
 // ViewController
 #import "FQHomeViewController.h"
 #import "FQGameViewController.h"
@@ -51,6 +52,7 @@ static NSString *keyFriendsUserDefaults = @"keyFriendsUserDefaults";
 	[self setupFacebookStateChanged];
 	[self fetchFacebookResult];
 	[self loadDataFriends];
+    self.canDisplayBannerAds = YES;
 }
 
 #pragma mark - IBAction
