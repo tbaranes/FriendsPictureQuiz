@@ -41,7 +41,7 @@
 	CGRect frame = CGRectZero;
 	frame.size = toSize;
 	[UIView animateWithDuration:1.f  animations:^{
-		[self setAlpha:0];
+//		[self setAlpha:0];
 	}];
 }
 

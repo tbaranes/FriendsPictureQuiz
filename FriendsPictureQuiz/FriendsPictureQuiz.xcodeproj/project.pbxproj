@@ -37,6 +37,7 @@
 		E2A56AA01939A73B004F2470 /* profile_found@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A56A9E1939A73B004F2470 /* profile_found@2x.png */; };
 		E2A56AA31939A758004F2470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A56AA21939A758004F2470 /* main.m */; };
 		E2A56AA71939A767004F2470 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A56AA61939A767004F2470 /* Images.xcassets */; };
+		E2C0C81A19402FF0002C186D /* FQGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C0C81919402FF0002C186D /* FQGameManager.m */; };
 		E2D6A8D61939B2E900F8BCC4 /* btn_twitter_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2D6A8D51939B2E900F8BCC4 /* btn_twitter_login@2x.png */; };
 		E2D6A8D81939D01A00F8BCC4 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */; };
 		E2D6A8DF1939FE7200F8BCC4 /* FQFacebookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D6A8DE1939FE7200F8BCC4 /* FQFacebookHelper.m */; };
@@ -95,6 +96,8 @@
 		E2A56A9E1939A73B004F2470 /* profile_found@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_found@2x.png"; sourceTree = "<group>"; };
 		E2A56AA21939A758004F2470 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2A56AA61939A767004F2470 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E2C0C81819402FF0002C186D /* FQGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQGameManager.h; sourceTree = "<group>"; };
+		E2C0C81919402FF0002C186D /* FQGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FQGameManager.m; sourceTree = "<group>"; };
 		E2D6A8D51939B2E900F8BCC4 /* btn_twitter_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_twitter_login@2x.png"; sourceTree = "<group>"; };
 		E2D6A8D71939D01A00F8BCC4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E2D6A8DD1939FE7200F8BCC4 /* FQFacebookHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FQFacebookHelper.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				E276F3FD193DF48600A98D6F /* Cell */,
 				E2A56A971939A725004F2470 /* FQGameViewController.h */,
 				E2A56A981939A725004F2470 /* FQGameViewController.m */,
+				E2C0C81819402FF0002C186D /* FQGameManager.h */,
+				E2C0C81919402FF0002C186D /* FQGameManager.m */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				E276F407193E13E800A98D6F /* FQLetterCell.m in Sources */,
 				E2DD52CA1939A9A600C08971 /* FQTwitterHelper.m in Sources */,
 				E276F402193E0D2300A98D6F /* FQLetter.m in Sources */,
+				E2C0C81A19402FF0002C186D /* FQGameManager.m in Sources */,
 				E204E001193F03D200F0E1CB /* UIColor+FQExtensions.m in Sources */,
 				E2A56A9C1939A72F004F2470 /* FQAppDelegate.m in Sources */,
 				E2A56A951939A71C004F2470 /* FQHomeHeaderReusableView.m in Sources */,
