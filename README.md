@@ -1,11 +1,13 @@
-# FriendsPictureQuiz_iOS
-FriendsPictureQuiz's code, available on the Apple store
+# FriendsPictureQuiz
+FriendsPictureQuiz's code, available on the Apple store... until when?
 
-Small application developed and released in 2013. The application has been developped for iOS7/8, and has never been tester on the last iOS versions.
+Small application developed and released in 2014. The application has been developped for iOS7/8, and has never been tester on the last iOS versions.
 
 Feel free to use the code if necessary!
 
 ### What is it?
+
+*Description from the Apple Store*
 
 Do you think you know your friends? Could you recognise each features of them ? If yes, accept this challenge!
 
