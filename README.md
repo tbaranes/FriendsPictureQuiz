@@ -1,7 +1,6 @@
 # FriendsPictureQuiz
-FriendsPictureQuiz's code, available on the Apple store... until when?
 
-Small application developed and released in 2014. The application has been developped for iOS7/8, and has never been tested on the last iOS versions.
+FriendsPictureQuiz's was a small application developed and released in 2014. It has been available on the store a few years but removed from sales because of API breaking changes. This code is now just a souvenir.
 
 ### What is it?
 
